@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="de" prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from www.spyoff.com/de/tutorial/router-setup by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 09 Feb 2018 09:39:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<script type="text/javascript" src="https://spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/seq/32466/default/js/main.js.bundle"></script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DD-WRT Router einrichten - Tutorial | SpyOFF</title>
+<meta name="description" content="In diesem Beitrag erklären wir Dir anhand einer Schritt für Schritt Anleitung wie Du am einfachsten deinen DD-WRT Router einrichten kannst. Wir gehen dabei auch auf die Konfiguration von DD-WRT OpenVPN ein." />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="In diesem Beitrag erklären wir Dir anhand einer Schritt für Schritt Anleitung wie Du am einfachsten deinen DD-WRT Router einrichten kannst. Wir gehen dabei auch auf die Konfiguration von DD-WRT OpenVPN ein." />
+<meta property="og:image" content="https://spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFba9/default/img/social-img.png" />
+<meta property="og:url" content="https://www.spyoff.com/de/tutorial/router-setup" />
+<meta property="og:title" content="DD-WRT Router einrichten - Tutorial | SpyOFF" />
+<meta name="generator" content="Dislo" />
+<meta name="google-site-verification" content="8STbrFsJY4_kwuXSVz2IQtaTASpglhU_xKyA1zVmGcQ" />
+<link rel="stylesheet" type="text/css" href="https://spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/seq/32466/default/css/main.css.bundle">
+<link rel="shortcut icon" href="https://spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbpd/default/favicon.ico" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite" type="text/css" media="all">
+<link href="https://fonts.googleapis.com/css?family=Vidaloka" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" rel="stylesheet">
+</head>
+<body>
+<script type="text/javascript">(function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,
+0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
+mixpanel.init("59e3fc828b5192ff1213c42287418df1");</script>
+<header>
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="subheader">
+<div class="container">
+<div class="row">
+<div class="col-md-6"></div>
+<div class="col-md-6">
+<div class="text-right">
+<ul class="list-unstyled list-inline">
+<li>
+<a href="https://shop.spyoff.com/de/my-account/" class=""><i class="fa fa-user" style="opacity:.5;"></i>&nbsp;Login</a>
+</li>
+<li>
+<div class="dropdown">
+<div data-toggle="dropdown" id="langdd" class="cursor-pointer">
+Deutsch&nbsp;<span><i class="fa fa-chevron-down"></i></span>
+</div>
+<ul class="lang-select-dd dropdown-menu dropdown-menu-right" aria-labelledby="langdd">
+<li><a href="router-setup.html">Deutsch</a></li>
+<li><a href="../../en/tutorial/router-setup.html">English</a></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="../../de.html"><img src="https://spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbfU/default/img/SpyOFF_Logo_VPN-01.svg" alt="SpyOFF"></a>
+</div>
+<div style="height:100px; padding-top:32px;" class="text-right alt-menu">
+<h2 class="m-t-b-0">DD-WRT Router einrichten</h2>
+</div>
+</div>
+</nav>
+</header>
+<div class="titlebar-mobile titlebar text-center">
+<h4>DD-WRT Router einrichten</h4>
+</div>
+<section id="dynamic-content">
+<div class="container">
+<div class="row m-b-xl m-t-lg">
+<div class="col-md-8">
+<p>
+In vielen Fällen schöpfen Router Ihre Möglichkeiten nicht voll aus. Oft werden in der offiziellen Firmware Funktionen blockiert, die der Hersteller aus technischer Sicht zwar anbieten könnte, jedoch nicht anbieten möchte. An genau diesem Punkt setzt die Profi-Firmware DD-WRT an. Sie entsperren ungenutztes Potenzial. Damit könnte man beispielsweise den heimischen DSL-Anschluss nur an ausgewählten Tagen freischalten, oder einen öffentlichen Hotspot einrichten. Die Firmware von DD-WRT bietet Dir allerdings noch einen weiteren Vorteil: Du kannst damit einen VPN-Client auf Deinem Router einrichten! Wir empfehlen Dir jedoch für einen vorkonfigurierten SpyOFF DD-WRT Router <a href="https://www.flashrouters.com/">FlashRouters</a> zu besuchen.
+</p>
+</div>
+<div class="col-md-4">
+<img src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbnf/default/img/large_Router-Software-aktualisieren-300x165.png" class="img-responsive m-0-auto" />
+</div>
+</div>
+<div class="row m-b-xl m-t-lg">
+<div class="col-md-12">
+<p>Unser Service ist kompatibel mit Routern, welche die Firmware DD-WRT oder Tomato unterstützen. Bitte sei Dir bewusst, dass die Konfiguration von DD-WRT und Tomato sehr komplex ist für unerfahrene Nutzer. Beachte bitte folgende Punkte:</p>
+<ul>
+<li>Für den Fall, dass Du noch keinen kompatiblen Router besitzt, bietet Dir SpyOFF in Zusammenarbeit mit FlashRouters eine Vielzahl an DD-WRT Routern an, welche speziell für SpyOFF Kunden konfiguriert werden. Wir erhalten dabei keine Provision durch Verkäufe. Trotzdem empfehlen wir Dir FlashRouters, da diese&nbsp;das Fachwissen für den Support von DD-WRT Problemen besitzen. Besuche ebenfalls unser VPN Router Seite für weitere Informationen.</li>
+<li>Auch wenn Du bereits einen Router besitzen, bietet Dir FlashRouter Unterstützung an, indem die korrekte Firmware auf Deinem Router installiert und die Konfiguration zur Verbindung mit einem VPN Server von SpyOFF per Fernzugriff vorgenommen wird. Wir empfehlen Dir diese Möglichkeit wahrzunehmen, da das Flashen sowie die Konfiguration eines Routers ein äußerst komplizierter, technischer Prozess ist und das Risiko besteht, dass die Funktionalität Deines Routers durch eine Fehlkonfiguration beeinträchtigt wird.</li>
+<li>Wir betreiben keinen Support bezüglich der Installation von DD-WRT oder Tomato Firmware auf Deinem Router. Du installierst DD-WRT oder Tomato Firmware auf eigene Gefahr. Wir übernehmen keine Verantwortung, sollte Dein Router während diesem Prozess beschädigt werden.</li>
+<li>Bitte versicher Dich, dass Du die aktuellste Version der DD-WRT Firmware verwenden, dabei einer veralteten Version zu einer Vielzahl an Fehlern mit&nbsp;OpenVPN und DNS kommen&nbsp;kann.</li>
+<li>Unser DD-WRT OpenVPN Skript funktioniert nicht mit Mini oder Micro Versionen von DD-WRT. Installiere bitte die Versionen Big oder Mega der DD-WRT Firmware.</li>
+</ul>
+<p>Im Laufe der Einrichtung auf Deinem Router benötigst Du einen Server von SpyOFF.</p>
+<a class="w-btn bg-blue-2" href="../server-list.html"><span class="w-btn-label">ZUR SERVERLISTE</span></a>
+</div>
+</div>
+<hr />
+<div class="row m-b-xl m-t-lg">
+<div class="col-md-12">
+
+<ul class="nav nav-pills bg-light-grey" role="tablist">
+<li class="active text-lg"><a href="#tab1" role="tab" data-toggle="tab"><h4>DD-WRT</h4></a></li>
+<li class="text-lg"><a href="#tab2" role="tab" data-toggle="tab"><h4>Tomato</h4></a></li>
+<li class="text-lg"><a href="#tab3" role="tab" data-toggle="tab"><h4>Manuell</h4></a></li>
+</ul>
+
+<div class="tab-content">
+
+<div class="active tab-pane fade in p-t-lg" id="tab1">
+<p><strong>1. Verbinde Deinen FlashRouter mit dem Internet</strong></p>
+<ul>
+<li>Verbinde Dein Modem oder Deinen bereits vorhandenen Router über&nbsp;ein Ethernet Kabel mit Deinem FlashRouter WAN / Internet Port.</li>
+<li>Schließe das Netzteil an und starte Deinen FlashRouter.</li>
+<li>Verbinde Deinen FlashRouter über ein Ethernet Kabel mit Deinem Computer oder Laptop.</li>
+</ul>
+<p><strong>2.&nbsp;Rufe die Einstellungen Deines Routers auf</strong></p>
+<ul>
+ <li>Öffne die DD-WRT Administration in Deinem Browser, indem Du (normalerweise) die Adresse http://192.168.1.1 eingeben. Sollten bei Dir Probleme auftreten und Du diese Seite nicht erreichen, setze Dich bitte Deinen Router auf Werkseinstellung zurück.</li>
+</ul>
+<img class="img-responsive m-t-b-lg" src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbnA/default/img/router_setup_02.png" />
+<ul>
+<li>Gebe Deinen Benutzernamen ein, (wie z.B. flashrouter)</li>
+<li>Gebe Dein Passwort ein, (wie z.B. ddwrt)</li>
+</ul>
+<img class="img-responsive m-t-b-lg" src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbnW/default/img/router_setup_01.png" />
+<p><strong>3.&nbsp;Konfiguriere Deine DNS</strong></p>
+<ul>
+<li>Klicke auf „Setup“. Öffne den Tab „Basic Setup“. (Wenn Du gerade erst Deinen FlashRouter erhalten hast, sollten Deine Einstellungen bereits korrekt sein.)</li>
+</ul>
+<img class="img-responsive m-t-b-lg" src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbnx/default/img/router_setup_03.png" />
+<ul>
+<li>Im Bereich „Static DNS“ tippe in die Felder folgende Kombinationen von DNS-Server ein:
+<ul>
+<li>Google DNS Server: 8.8.8.8, 8.8.4.4</li>
+<li>OpenDNS Server: 208.67.222.222, 208.67.220.220</li>
+</ul>
+</li>
+<li>Bestätigen Deine Änderungen mit „Apply Settings“.</li>
+</ul>
+<img class="img-responsive m-t-b-lg" src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbny/default/img/router_setup_04.png" />
+<p><strong>4. Konfiguriere Ihr WLAN</strong></p>
+<ul>
+<li>Klicke auf „Wireless“ in der Navigationsleiste.&nbsp;Rufe den Tab „Basic Settings“ auf. Entnehme die vorzunehmenden Einstellungen dem folgenden Bild:</li>
+</ul>
+<img class="img-responsive m-t-b-lg" src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbnZ/default/img/router_setup_05.png" />
+<ul>
+<li>Öffne nun den Tab „Wireless Security“. Wähle beim Security Mode „WPA2 Personal“ sowie bei WPA Algorithms „AES“ aus.</li>
+</ul>
+<img class="img-responsive m-t-b-lg" src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbnz/default/img/router_setup_06.png" />
+<p><strong>5. Wechsele Dein FlashRouters Administrationspasswort</strong></p>
+<ul>
+<li>Rufe über „Administration“ den „Management“ Tab auf.</li>
+</ul>
+<img class="img-responsive m-t-b-lg" src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbn2/default/img/router_setup_07.png" />
+<ul>
+<li>Lösche die voreingestellten Eingaben und tippe Deinen Benutzernamen sowie Dein neues Kennwort ein.</li>
+</ul>
+<img class="img-responsive m-t-b-lg" src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbar/default/img/router_setup_08.png" />
+<ul>
+<li>Sichere Deine Eingaben mit „Apply Settings“.</li>
+</ul>
+<img class="img-responsive m-t-b-lg" src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbnb/default/img/router_setup_09.png" />
+<ul>
+<li>Denke daran, dass sich dieser Benutzernamen und das Passwort von den Anmeldedaten&nbsp;zu Deinem WLAN unterscheiden.</li>
+</ul>
+<p><strong>6. Stelle eine VPN-Verbindung her</strong></p>
+<ul>
+<li>Öffne nun im Tab „Services“ den Reiter „VPN“.</li>
+</ul>
+<img class="img-responsive m-t-b-lg" src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbap/default/img/router_setup_10.png" />
+<ul>
+<li>Klicke den Button „Enable“ bei „Start OpenVPN Client“ an. Sobald dieser Button angeklickt wurde, werden weitere Einstellungsmöglichkeiten erscheinen.</li>
+</ul>
+<img class="img-responsive m-t-b-lg" src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbnc/default/img/router_setup_11.png" />
+<ul>
+<li>Vergesse nicht mit „Save“ zu speichern!</li>
+</ul>
+<img class="img-responsive m-t-b-lg" src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbas/default/img/router_setup_12.png" />
+<ul>
+<li>Frage folgende Informationen bei „OpenVPN Client“ ein:<br>
+<table>
+<tbody>
+<tr>
+<td>– Server IP/Name:</td>
+<td>Hinterlegen Sie die Adresse Ihres Servers, z.B. fra-a01.spyoff.com</td>
+</tr>
+<tr>
+<td>– Port:</td>
+<td>443</td>
+</tr>
+<tr>
+<td>– Tunnel Protocol:</td>
+<td>TCP</td>
+</tr>
+<tr>
+<td>– Tunnel Device:</td>
+<td>TUN</td>
+</tr>
+<tr>
+<td>– Encryption Cipher:</td>
+<td>AES-256-CBC</td>
+</tr>
+<tr>
+<td>– Hash Algorithm:</td>
+<td>SHA256</td>
+</tr>
+<tr>
+<td>– nsCertType Verification:</td>
+<td>unmarkiert lassen</td>
+</tr>
+<tr>
+<td>– Advanced Options:</td>
+<td>auf „Enable“ setzen</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<img class="img-responsive m-t-b-lg" src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbnd/default/img/router_setup_13.png" />
+<ul>
+<li>Sichere Deine Einstellungen mit „Save“.</li>
+</ul>
+<img class="img-responsive m-t-b-lg" src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbas/default/img/router_setup_12.png" />
+<ul>
+<li>Fahre mit der Konfiguration der fortgeschrittenen Einstellungen fort:<br>
+<table>
+<tbody>
+<tr>
+<td>– Advanced Options:</td>
+<td>auf „Enable“ setzen</td>
+</tr>
+<tr>
+<td>– Use LZO Compression:</td>
+<td>auf „Enable“ setzen</td>
+</tr>
+<tr>
+<td>– NAT:</td>
+<td>auf „Enable“ setzen</td>
+</tr>
+<tr>
+<td>– Local IP Address:</td>
+<td>Feld frei lassen</td>
+</tr>
+<tr>
+<td>– TUN MTU Setting:</td>
+<td>1500</td>
+</tr>
+<tr>
+<td>– MSS-Fix/Fragment across the tunnel:</td>
+<td>Feld frei lassen</td>
+</tr>
+<tr>
+<td>– TLS Cipher:</td>
+<td>AES-256-SHA</td>
+</tr>
+<tr>
+<td>– TLS Auth-Key:</td>
+<td>Feld frei lassen</td>
+</tr>
+<tr>
+<td>– Additional Config:</td>
+<td>persist-remote-ip</td>
+</tr>
+<tr>
+<td></td>
+<td>keysize 256</td>
+</tr>
+<tr>
+<td></td>
+<td>tls-remote [fra-a01.spyoff.com]
+</p></td>
+</tr>
+<tr>
+<td></td>
+<td>auth-user-pass /tmp/auth.conf</td>
+</tr>
+<tr>
+<td></td>
+<td>script-security 3 system</td>
+</tr>
+</tbody>
+</table>
+<p><i>Hinweis: Statt „fra-a01.spyoff.com“ trage den Server Deiner Wahl ein!</i></p>
+</li>
+</ul>
+<img class="img-responsive m-t-b-lg" src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbah/default/img/router_setup_14.png" />
+<ul>
+<li>CA Cert: Lade Dir folgende Datei mit unserem <a href="https://spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbpC/default/files/software/SpyOFF-openvpn-config-v1.0.zip">Zertifikat</a>&nbsp;herunter und entpacke diese. Öffne anschließend die Datei „ca.spyoff.com“ mit einem Text-Editor und kopiere den kompletten Inhalt. Füge diesen dann im CA Cert-Feld ein.</li>
+</ul>
+<img class="img-responsive m-t-b-lg" src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbaB/default/img/router_setup_15.png" />
+<ul>
+<li>Speicher Deine Einstellungen mit „Save“!</li>
+</ul>
+<img class="img-responsive m-t-b-lg" src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbas/default/img/router_setup_12.png" />
+<ul>
+<li>Klicke in der Navigationsleiste auf „Administration“</li>
+</ul>
+<ul>
+<li>Öffne den Reiter „Commands“ und trage folgende Zeilen ein:<br>
+<table>
+<tbody>
+<tr>
+<td>#!/bin/sh</td>
+</tr>
+<tr>
+<td>touch /tmp/auth.conf</td>
+</tr>
+<tr>
+<td>echo „[Ihr Benutzername@spyoff]“ &gt; /tmp/auth.conf</td>
+</tr>
+<tr>
+<td>echo „[Ihr Passwort]“ &gt;&gt; /tmp/auth.conf</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li>Klicke auf „Save Startup“ um Deine Einstellungen zu sichern!</li>
+</ul>
+<img class="img-responsive m-t-b-lg" src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFban/default/img/router_setup_16.png" />
+<ul>
+<li>Klicke nun den Reiter „Management“ an.</li>
+</ul>
+<img class="img-responsive m-t-b-lg" src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbaU/default/img/router_setup_17.png" />
+<ul>
+<li>Scrolle an das Seitenende und klicke den Button „Reboot Router“ an. Warte ca. 5 Minuten und öffne anschließend die Seite <a href="http://www.whatismyip.com/">http://www.whatismyip.com/></a> um Deine Verbindung zu testen. Solltet Du dabei keinen Erfolg haben, führe diesen Schritt erneut durch. Hat dieser Test immer noch nicht funktioniert, kontaktiere bitte unseren Support!</li>
+</ul>
+<img class="img-responsive m-t-b-lg" src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbaa/default/img/router_setup_18.png" />
+</div>
+
+<div class="tab-pane fade p-t-lg" id="tab2">
+<ul>
+<li>Klicken Sie in der Sidebar auf „VPN Tunneling“ und „OpenVPN Client“.</li>
+</ul>
+<ul>
+<li>Tragen Sie folgende Einstellungen ein:<br>
+<i>Hinweis: Tragen Sie bei „Server Address“ den Server Ihrer Wahl ein. Beim „Port“ können Sie auch 1194 verwenden.</i></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<td>Start with WAN:</td>
+<td>Setzen Sie ein Häckchen</td>
+</tr>
+<tr>
+<td>Interface Type:</td>
+<td>TUN</td>
+</tr>
+<tr>
+<td>Protocol</td>
+<td>: TCP</td>
+</tr>
+<tr>
+<td>Server Address/Port:</td>
+<td>fra-a01.spyoff.com / 443</td>
+</tr>
+<tr>
+<td>Firewall:</td>
+<td>Automatic</td>
+</tr>
+<tr>
+<td>Authorization Mode:</td>
+<td>TLS</td>
+</tr>
+<tr>
+<td>Username/Password Authentification:</td>
+<td>Setzen Sie ein Häckchen</td>
+</tr>
+<tr>
+<td>Username:</td>
+<td>Tragen Sie Ihren Benutzernamen ein</td>
+</tr>
+<tr>
+<td>Password:</td>
+<td>Tragen Sie Ihr Passwort ein</td>
+</tr>
+<tr>
+<td>Username Authen. Only:</td>
+<td>Setzen Sie ein Häckchen</td>
+</tr>
+<tr>
+<td>Extra HMAC authorization (tls-auth):</td>
+<td>Disabled</td>
+</tr>
+<tr>
+<td>Create NAT on tunnel:</td>
+<td>Setzen Sie ein Häckchen</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Klicken Sie auf „Save“ und speichern Sie Ihre Einstellungen.</li>
+</ul>
+<ul>
+<li>Öffnen Sie den Tab „Advanced“.</li>
+</ul>
+<ul>
+<li>Nehmen Sie folgende Änderungen vor:<br>
+<i>Hinweis: Tragen Sie unter „Common Name“ die Server-Adresse Ihrer Wahl ein.</i></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<td>Redirect Internet traffic:</td>
+<td>Setzen Sie ein Häckchen</td>
+</tr>
+<tr>
+<td>Accept DNS Configuration:</td>
+<td>Strict</td>
+</tr>
+<tr>
+<td>Encryption cipher:</td>
+<td>AES-256-CBC</td>
+</tr>
+<tr>
+<td>Compression:</td>
+<td>Adaptive</td>
+</tr>
+<tr>
+<td>TLS Renegotiation Time:</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>Connection Retry:</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Verify server certificate:</td>
+<td>Setzen Sie ein Häckchen</td>
+</tr>
+<tr>
+<td>Common Name:</td>
+<td>fra-a01.spyoff.com</td>
+</tr>
+<tr>
+<td>Custom Configuration:</td>
+<td>resolv-retry infinite</td>
+</tr>
+<tr>
+<td></td>
+<td>nobind</td>
+</tr>
+<tr>
+<td></td>
+<td>persist-key</td>
+</tr>
+<tr>
+<td></td>
+<td>persist-tun</td>
+</tr>
+<tr>
+<td></td>
+<td>persist-remote-ip</td>
+<td></td>
+<td>comp-lzo</td>
+<td></td>
+<td>verb 3</td>
+<td></td>
+<td>auth SHA256</td>
+<td></td>
+<td>keysize 256</td>
+<td></td>
+<td>tls-cipher DHE-RSA-AES256-SHA</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Klicken Sie auf „Save“ um die Einstellungen zu speichern.</li>
+</ul>
+<ul>
+<li>Laden Sie sich die Datei <a href="https://apps.spyoff.com/software/configs/SpyOFF-openvpn-config-v1.0.zip">https://www.spyoff.com/software/configs/SpyOFF-openvpn-config-v1.0.zip</a> herunter und entpacken Sie diese. Öffnen Sie anschließend die Datei „ca.spyoff.com“ mit einem Text-Editor und kopieren Sie den kompletten Inhalt. Fügen Sie diesen dann unter dem Reiter „Keys“ im Feld „Certificate Authority“ ein.</li>
+</ul>
+<ul>
+<li>Klicken Sie auf „Save“ um die Einstellungen zu speichern.</li>
+</ul>
+<ul>
+<li>Klicken Sie im Tab „Keys“ auf den Button „Start Now“. Warten Sie bis der OpenVPN Service startet.</li>
+</ul>
+<ul>
+<li>Gehen Sie sicher, dass Ihr Router mit OpenVPN startet. Klicken Sie in der Sidebar auf „Reboot“ und bestätigen Sie mit „OK“.</li>
+</ul>
+<ul>
+<li>Warten Sie während Ihr Router neustartet.</li>
+</ul>
+<ul>
+<li>Es kann sein, dass Sie auf „Continue“ klicken müssen, um den Startvorgang fortsetzen zu können.</li>
+</ul>
+<ul>
+<li>Überprüfen Sie nun, ob Ihr Router mit OpenVPN funktioniert. Öffnen Sie über die Sidebar „VPN Tunneling“ und „OpenVPN Client“. Klicken Sie auf den Tab „Status“. Achten Sie nun auf die übertragenen Bytes. Diese Zahl sollte kontinuierlich ansteigen.</li>
+</ul>
+</div>
+
+<div class="tab-pane fade p-t-lg" id="tab3">
+<ul>
+<p>In der folgenden Anleitung beschreiben wir dir in einfachen Schritten, wie du über deinen Router deinen kompletten Internetzugang schützt.
+<br>
+<b>Achtung:</b>Nur für Experten geeignet! </p>
+<ul>
+<li> <b> Schritt 1: </b> Wähle das Modell deines Routers aus</li>
+</ul>
+<div class="dropdown-router style=" width:100%;">
+<button onclick="myFunction()" class="dropbtn-router" style="width:100%;">Router auswählen</button>
+<div id="myDropdown-router" class="dropdown-content-router" style="width:150px;height:150px;line-height:3em;overflow:auto;padding:5px;">
+<a href="#Asus" onclick="changeModel('Asus')">Asus</a>
+<a href="#Belkin" onclick="changeModel('Belkin')">Belkin</a>
+<a href="#Buffalo" onclick="changeModel('Buffalo')">Buffalo</a>
+<a href="#Linksys" onclick="changeModel('Linksys')">Linksys(Cisco)</a>
+<a href="#D-Link" onclick="changeModel('D-link')">D-Link</a>
+<a href="#Logilink" onclick="changeModel('Logilink')">Logilink</a>
+<a href="#Microsoft" onclick="changeModel('Microsoft')">Microsoft</a>
+<a href="#Motorola" onclick="changeModel('Motorola')">Motorola</a>
+<a href="#Netgear" onclick="changeModel('Netgear')">Netgear</a>
+<a href="#Nokia" onclick="changeModel('Nokia')">Nokia</a>
+<a href="#Siemens" onclick="changeModel('Siemens')">Siemens</a>
+<a href="#Toshiba" onclick="changeModel('Toshiba')">Toshiba</a>
+<a href="#Tp-Link" onclick="changeModel('Tp-Link')">Tp-Link</a>
+<a href="#Sparklan" onclick="changeModel('Sparklan')">Sparklan</a>
+<a href="#Fuji" onclick="changeModel('Fuji')">Fuji</a>
+</div>
+<span id="selected_router">Ausgewählter Router: -</span>
+</div>
+<br></br>
+<ul>
+<li> <b> Schritt 2: </b> Wähle den Typ deines Routers aus</li>
+</ul>
+<div class="dropdown-router2 style=" width:100%;">
+<button onclick="showModel()" class="dropbtn-router" style="width:100%;">Modell auswählen</button>
+<div id="model" class="dropdown-content-router" style="width:150px;height:150px;line-height:3em;overflow:auto;padding:5px;">
+<a href="#Asus" class="model asus hidden" onclick="changeArt('RT-AC56U')">RT-AC56U</a>
+<a href="#Asus" class="model asus hidden" onclick="changeArt('RT-AC66U')">RT-AC66U</a>
+<a href="#Asus" class="model asus hidden" onclick="changeArt('RT-AC68p')">RT-AC68P</a>
+<a href="#Asus" class="model asus hidden" onclick="changeArt('RT-AC68U')">RT-AC68U</a>
+<a href="#Asus" class="model asus hidden" onclick="changeArt('RT-AC87U')">RT-AC87U</a>
+<a href="#Belkin" class="model belkin hidden" onclick="changeArt('F5D7130')">F5D7130</a>
+<a href="#Belkin" class="model belkin hidden" onclick="changeArt('F5D7130uk')">F5D7130uk</a>
+<a href="#Belkin" class="model belkin hidden" onclick="changeArt('F5D7130-4')">F5D7130-4</a>
+<a href="#Belkin" class="model belkin hidden" onclick="changeArt('F5D7230-4')">F5D7230-4</a>
+<a href="#Belkin" class="model belkin hidden" onclick="changeArt('Play')">Play</a>
+<a href="#Belkin" class="model belkin hidden" onclick="changeArt('F5D7231-4')">F5D7231-4</a>
+<a href="#Belkin" class="model belkin hidden" onclick="changeArt('F5D7231-4P')">F5D7231-4P</a>
+ <a href="#Belkin" class="model belkin hidden" onclick="changeArt('F5D7330')">F5D7330</a>
+<a href="#Buffalo" class="model buffalo hidden" onclick="changeArt('BHR-4GRV')">BHR-4GRV</a>
+<a href="#Buffalo" class="model buffalo hidden" onclick="changeArt('WBR-B11')">WBR-B11</a>
+<a href="#Buffalo" class="model buffalo hidden" onclick="changeArt('WBR-G54')">WBR-G54</a>
+<a href="#Buffalo" class="model buffalo hidden" onclick="changeArt('WBR2-G54')">WBR2-G54V</a>
+<a href="#Buffalo" class="model buffalo hidden" onclick="changeArt('WBR2-G54S')">WBR2-G54S</a>
+<a href="#Buffalo" class="model buffalo hidden" onclick="changeArt('WCR-GN')">WCR-GN</a>
+<a href="#Linksys" class="model linksys hidden" onclick="changeArt('E800')">E800</a>
+<a href="#Linksys" class="model linksys hidden" onclick="changeArt('E900')">E900</a>
+<a href="#Linksys" class="model linksys hidden" onclick="changeArt('E1000')">E1000</a>
+<a href="#Linksys" class="model linksys hidden" onclick="changeArt('E1200')">E1200</a>
+<a href="#Linksys" class="model linksys hidden" onclick="changeArt('E1500')">E1500</a>
+<a href="#D-Link" class="model d-link hidden" onclick="changeArt('DAP-2230')">DAP-2230</a>
+<a href="#D-Link" class="model d-link hidden" onclick="changeArt('DAP-2660')">DAP-2660</a>
+<a href="#D-Link" class="model d-link hidden" onclick="changeArt('DAP-3310')">DAP-3310</a>
+<a href="#D-Link" class="model d-link hidden" onclick="changeArt('DAP-3320')">DAP-3320</a>
+<a href="#D-Link" class="model d-link hidden" onclick="changeArt('DAP-3410')">DAP-3410</a>
+<a href="#Logilink" class="model logilink hidden" onclick="changeArt('WL0129')">WL0129</a>
+<a href="#Microsoft" class="model microsoft hidden" onclick="changeArt('MN-700')">MN-700</a>
+<a href="#Mototola" class="model motorola hidden" onclick="changeArt('WE800G')">WE800G</a>
+<a href="#Mototola" class="model motorola hidden" onclick="changeArt('WE850G')">WE850G</a>
+<a href="#Mototola" class="model motorola hidden" onclick="changeArt('WE800GP')">WE800GP</a>
+<a href="#Netgear" class="model netgear hidden" onclick="changeArt('AC1450')">AC1450</a>
+<a href="#Netgear" class="model netgear hidden" onclick="changeArt('EX6200')">EX6200</a>
+<a href="#Netgear" class="model netgear hidden" onclick="changeArt('R6000')">R6000</a>
+<a href="#Netgear" class="model netgear hidden" onclick="changeArt('R6100')">R6100</a>
+<a href="#Nokia" class="model nokia hidden" onclick="changeArt('IP110')">IP110</a>
+<a href="#Nokia" class="model nokia hidden" onclick="changeArt('IP120')">IP120</a>
+<a href="#Nokia" class="model nokia hidden" onclick="changeArt('IP130')">IP130</a>
+<a href="#Nokia" class="model nokia hidden" onclick="changeArt('IP330')">IP330</a>
+<a href="#Siemens" class="model siemens hidden" onclick="changeArt('Gigaset SE505')">Gigaset SE505</a>
+ <a href="#Siemens" class="model siemens hidden" onclick="changeArt('Gigaset SX550')">Gigaset SE550</a>
+<a href="#Siemens" class="model siemens hidden" onclick="changeArt('Gigaset SX550i')">Gigaset SX550i</a>
+<a href="#Siemens" class="model siemens hidden" onclick="changeArt('Gigaset SX763')">Gigaset SX763</a>
+<a href="#Toshiba" class="model toshiba hidden" onclick="changeArt('Magnia SG-20')">Magnia SG-20</a>
+<a href="#TP-Link" class="model tp-link hidden" onclick="changeArt('Archer C5')">Archer C5</a>
+<a href="#TP-Link" class="model tp-link hidden" onclick="changeArt('Archer C7')">Archer C7</a>
+<a href="#TP-Link" class="model tp-link hidden" onclick="changeArt('Archer C8')">Archer C8</a>
+<a href="#TP-Link" class="model tp-link hidden" onclick="changeArt('Archer C9')">Archer C9</a>
+<a href="#Sparklan" class="model sparklan hidden" onclick="changeArt('WX6615GT')">WX6615GT</a>
+<a href="#Fuji" class="model fuji hidden" onclick="changeArt('RT390W')">RT390W</a>
+</div>
+<span id="selected_modell">Ausgewähltes Modell: -</span>
+<div class="separator">
+<span>
+<i class="fa fa-chevron-down"></i>
+</span>
+</div>
+</div>
+<div class="bg-light-grey p-t-b-xl hidden">
+<div class="container" style="display: table; width: %;">
+<h2 class="heading-elite">Bitte Wähle deine Firmware</h2>
+<div class="separator">
+<span>
+<i class="fa fa-chevron-down"></i>
+</span>
+</div>
+</div>
+</div>
+<div id="router-info" class="router-container hidden">
+<img src='../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/WDvFQfUHvvAuMywBqKoJkT/default/img/router_dd-wrt.png' class="router-image" style="width:100%" />
+<div class="router-middle">
+<div class="router-text"><a href="router-setup/dd-wrt.html">Zur Anleitung</a></div>
+</div>
+</div>
+<div class="router-container hidden">
+<img src='../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/WDvFQfUHvvAuMywBqKoJkQ/default/img/router_tomato.png' class="router-image" style="width:100%" />
+<div class="router-middle">
+<div class="router-text"><a href="router-setup/dd-wrt.html">Zur Anleitung</a></div>
+</div>
+<br>
+<br>
+</div>
+<script>
+                            
+			/* When the user clicks on the button, 
+				toggle between hiding and showing the dropdown content */
+                            
+                     function myFunction() {
+    					document.getElementById("myDropdown-router").classList.toggle("show");
+                    	}
+         
+         			function showModel() {
+    					document.getElementById("model").classList.toggle("show");         
+                    	}
+         
+         			function changeModel(model){    
+             			document.getElementById("selected_router").innerHTML="Ausgewählter Router: " + model;
+                    
+   			 				var elementArray;
+   			 				elementArray = document.getElementsByClassName("model");
+                	 
+                			for(var i = (elementArray.length - 1); i >= 0; i--){
+       			 			elementArray[i].classList.add('hidden');
+                            }   
+	
+							/* Nur modelle mit class = model -> Hidden wegnehmen */
+                        
+							elementArray = document.getElementsByClassName(model.toLowerCase());
+                        
+							for(var i = (elementArray.length - 1); i >= 0; i--){
+       						elementArray[i].classList.remove('hidden');
+                            }        
+         				}
+                         
+							// Close the dropdown if the user clicks outside of it
+                            
+                            
+							window.onclick = function(event) {
+  							if (!event.target.matches('.dropbtn-router')) {
+    							var dropdowns = document.getElementsByClassName("dropdown-content-router");
+   					 			var i;
+  					  			for (i = 0; i < dropdowns.length; i++) {
+     					 			var openDropdown = dropdowns[i];
+      									if (openDropdown.classList.contains('show')) {
+      							  			openDropdown.classList.remove('show');
+      										}
+    									}
+  									}
+                            }
+                                                                                                                                                                                 
+         					function changeArt(model){                  
+            				 	document.getElementById("selected_modell").innerHTML="Ausgewähltes Modell: " + model;
+                               
+                                var rountercontainer = document.getElementsByClassName("router-container" );
+   					 			var i;
+  					  			for (i = 0; i < rountercontainer.length; i++) {
+     					 			var router = rountercontainer[i];
+      									if (router.classList.contains('hidden')) {
+      							  			router.classList.remove('hidden');
+      										}
+    									}
+                                var rountercontainer = document.getElementsByClassName("bg-light-grey p-t-b-xl" );
+   					 			var i;
+  					  			for (i = 0; i < rountercontainer.length; i++) {
+     					 			var router = rountercontainer[i];
+      									if (router.classList.contains('hidden')) {
+      							  			router.classList.remove('hidden');
+                                        }
+                                }
+                            }                                                               
+                                                                                                                                                                                
+	</script>
+<div>
+<a class="w-btn bg-blue-2" href="../tutorial.html"><span class="w-btn-label">ZURÜCK ZU DEN INSTALLATIONSANLEITUNGEN</span></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer>
+<div class="container">
+<div class="row">
+<div class="col-sm-3">
+<h3 class="text-light-grey-2 m-b-lg">Über SpyOFF</h3>
+<ul class="list-unstyled m-b-lg">
+<li><a class="text-light-grey-2" href="../../index.html#preise">Pakete & Preise</a></li>
+<li><a class="text-light-grey-2" href="../server-location.html">Server-Standorte</a></li>
+<li><a class="text-light-grey-2" href="https://blog.spyoff.com/" target="_blank">Blog</a></li>
+<li><a class="text-light-grey-2" href="../downloads.html">Downloads</a></li>
+<li><a class="text-light-grey-2" href="../faq.html">FAQ</a></li>
+<li><a class="text-light-grey-2" href="../glossary.html">Glossar</a></li>
+<li><a class="text-light-grey-2" href="http://help.spyoff.com/">Kontakt</a></li>
+<li><a class="text-light-grey-2" href="../vpn-router.html">VPN-Router</a></li>
+</ul>
+</div>
+<div class="col-sm-3">
+<h3 class="text-light-grey-2 m-b-lg">Account</h3>
+<ul class="list-unstyled m-b-lg">
+<li><a class="text-light-grey-2" href="https://shop.spyoff.com/de/my-account/">Login</a></li>
+</ul>
+<h3 class="text-light-grey-2 m-b-lg">Sprachen</h3>
+<ul class="list-unstyled m-b-lg">
+<li><a class="text-light-grey-2" href="router-setup.html" target="_blank">DEUTSCH</a></li>
+<li><a class="text-light-grey-2" href="../../en/tutorial/router-setup.html" target="_blank">ENGLISH</a></li>
+</ul>
+</div>
+<div class="col-sm-3">
+<h3 class="text-light-grey-2 m-b-lg">Unternehmen</h3>
+<ul class="list-unstyled m-b-lg">
+<li><a class="text-light-grey-2" href="../imprint.html">Impressum</a></li>
+<li><a class="text-light-grey-2" href="../data-protection-regulations.html">Datenschutzbestimmungen</a></li>
+<li><a class="text-light-grey-2" href="../terms.html">AGB</a></li>
+<li><a class="text-light-grey-2" href="../affiliate/program.html">Partnerprogramm</a></li>
+<li><a class="text-light-grey-2" href="../affiliate.html">Affiliate-Login</a></li>
+</ul>
+</div>
+<div class="col-sm-3">
+<img src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbsy/default/img/bestapp-2016.png" class="img-responsive m-0-auto m-b " style="max-width:160px;" />
+<img src="../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbni/default/img/pc-magazine.png" class="img-responsive m-0-auto m-b" style="max-width:160px;" />
+</div>
+</div>
+</div>
+<div style="background:#222222;" class="m-t-lg">
+<div class="container">
+<div class="row">
+<div class="col-xs-12 text-center" style="margin-top: 25px;">
+<p class="text-muted">&copy; 2018 - All rights reserved by Sareta S.r.l. Support: info@spyoff.com</p>
+</div>
+</div>
+</div>
+</div>
+<div id="btn-scrolltop">
+<i class="fa fa-chevron-up"></i>
+</div>
+</footer>
+<div class="modal fade" id="video-modal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+<h4 class="modal-title" id="videoModalLabel">Sicher und anonym surfen per VPN Client von SpyOFF</h4>
+</div>
+<div class="modal-body">
+<div class="embed-responsive embed-responsive-16by9">
+<div id="player"></div>
+</div>
+
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Zurück</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+    var playerModal;
+    
+    $("#video-modal").on("show.bs.modal", function(){
+        if (!playerModal) {
+            playerModal = new YT.Player('player', {
+                videoId: 'Nvglzyf-6iM',
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+            
+        } else {
+            playerModal.playVideo();
+        }
+    }).on("hide.bs.modal", function(){
+        playerModal.stopVideo();
+    });
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    function onPlayerReady(event) {
+        event.target.playVideo();
+    }
+</script>
+<script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-61227988-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+<script>
+            (function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:'5000381'};o.q=w[u],w[u]=new UET(o),w[u].push('pageLoad')},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=='loaded'&&s!=='complete'||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,'script','../../../bat.bing.com/bat.js','uetq');
+        </script>
+<noscript><img src='http://bat.bing.com/action/0?ti=5000381&amp;Ver=2' height='0' width='0' style='display:none; visibility: hidden;' /></noscript>
+<script>
+        window.ntmData=window.ntmData||[];
+        window.ntmData.push({
+        pageType:'homepage'
+        });
+    </script>
+<noscript>
+            <iframe src='http://tm.ad-srv.net/tm/a/container/noscript/b89e1f4397.html' height='0' width='0' style='display:none;visibility:hidden'></iframe>
+        </noscript>
+<script>
+            (function(n,e,o,r,y){n[r]=n[r]||[];n[r].push({'event':'ntmInit','t':new Date().getTime()});var f=e.getElementsByTagName(o)[0],s=e.createElement(o),d=r!='ntmData'?'&ntmData='+r:'';s.async=true;s.src='http'+(document.location.protocol=='https:'?'s':'')+'://tm.ad-srv.net/tm/a/container/init/'+y+'.js?'+d+'&rnd='+Math.floor(Math.random()*100000000);f.parentNode.insertBefore(s,f);})(window,document,'script','ntmData','b89e1f4397');
+        </script>
+<script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+    </script>
+<script type="text/javascript">
+    document.write(decodeURI("%3Cscript id='pap_x2s6df8d' src='" + (("https:" == document.location.protocol) ? "https://" : "http://") + "www.friendlyduck.com/pan/scripts/trackjs.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+    PostAffTracker.setAccountId('a5eca9db');
+    PostAffTracker.setCookieDomain('spyoff.com');
+    try {
+        PostAffTracker.track();
+    } catch (err) { }
+</script>
+<script type="text/javascript">
+    var pan_queryString = window.location.href;
+
+    if (pan_queryString.indexOf('?') != -1 && pan_queryString.indexOf('a_aid') != -1 && pan_queryString.indexOf('a_bid') != -1) {
+        pan_queryString = pan_queryString.split('?')[1];
+
+        var pan_paramPairs = pan_queryString.split('&');
+        var pan_params = {};
+        var pan_setCookie = false;
+        for (var i = 0; i < pan_paramPairs.length; i++) {
+            var pan_param = pan_paramPairs[i].split('=');
+            var pan_paramName = pan_param[0];
+            if (pan_paramName == 'a_aid' || pan_paramName == 'a_bid' || pan_paramName == 'chan' || pan_paramName == 'data1' || pan_paramName == 'data2') {
+                pan_params[pan_paramName] = decodeURIComponent(pan_param[1] || '');
+                pan_setCookie = true;
+            }
+        }
+        if (pan_setCookie == true) {
+            if(document.referrer.length > 0) {
+                pan_params['ref'] = document.referrer;
+            }
+            var pan_json = JSON.stringify(pan_params);
+            var pan_cookieValue = btoa(pan_json);
+            var pan_expiry = new Date();
+            pan_expiry.setMonth(pan_expiry.getMonth() + 1);
+            document.cookie = "pan=" + pan_cookieValue + ";expires=" + pan_expiry + ";domain=.spyoff.com;path=/";
+        }
+    }
+</script></body>
+
+<!-- Mirrored from www.spyoff.com/de/tutorial/router-setup by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 09 Feb 2018 09:39:23 GMT -->
+</html>

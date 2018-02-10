@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="de" prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from www.spyoff.com/de/tutorial/vpn/expert/windows/l2tp by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 09 Feb 2018 09:38:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<script type="text/javascript" src="https://spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/seq/32466/default/js/main.js.bundle"></script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Windows VPN Experteneinstellungen - L2TP | SpyOFF</title>
+<meta name="description" content="Du bist Windows und VPN Experte und nimmst am liebsten alle Einstellungen selbst vor? Immer gerne! Hier haben wir noch einmal eine kurze Hilfestellung zum L2TP Protokoll" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="Du bist Windows und VPN Experte und nimmst am liebsten alle Einstellungen selbst vor? Immer gerne! Hier haben wir noch einmal eine kurze Hilfestellung zum L2TP Protokoll" />
+<meta property="og:image" content="https://spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFba9/default/img/social-img.png" />
+<meta property="og:url" content="https://www.spyoff.com/de/tutorial/vpn/expert/windows/l2tp" />
+<meta property="og:title" content="Windows VPN Experteneinstellungen - L2TP | SpyOFF" />
+<meta name="generator" content="Dislo" />
+<meta name="google-site-verification" content="8STbrFsJY4_kwuXSVz2IQtaTASpglhU_xKyA1zVmGcQ" />
+<link rel="stylesheet" type="text/css" href="https://spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/seq/32466/default/css/main.css.bundle">
+<link rel="shortcut icon" href="https://spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbpd/default/favicon.ico" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite" type="text/css" media="all">
+<link href="https://fonts.googleapis.com/css?family=Vidaloka" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" rel="stylesheet">
+</head>
+<body>
+<script type="text/javascript">(function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,
+0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
+mixpanel.init("59e3fc828b5192ff1213c42287418df1");</script>
+<header>
+<nav class="navbar navbar-default navbar-fixed-top">
+ <div class="subheader">
+<div class="container">
+<div class="row">
+<div class="col-md-6"></div>
+<div class="col-md-6">
+<div class="text-right">
+<ul class="list-unstyled list-inline">
+<li>
+<a href="https://shop.spyoff.com/de/my-account/" class=""><i class="fa fa-user" style="opacity:.5;"></i>&nbsp;Login</a>
+</li>
+<li>
+<div class="dropdown">
+<div data-toggle="dropdown" id="langdd" class="cursor-pointer">
+Deutsch&nbsp;<span><i class="fa fa-chevron-down"></i></span>
+</div>
+<ul class="lang-select-dd dropdown-menu dropdown-menu-right" aria-labelledby="langdd">
+<li><a href="l2tp.html">Deutsch</a></li>
+<li><a href="../../../../../en/tutorial/vpn/expert/windows/l2tp.html">English</a></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="../../../../../de.html"><img src="https://spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbfU/default/img/SpyOFF_Logo_VPN-01.svg" alt="SpyOFF"></a>
+</div>
+<div style="height:100px; padding-top:32px;" class="text-right alt-menu">
+<h2 class="m-t-b-0">VPN Experteneinstellungen Windows L2TP</h2>
+</div>
+</div>
+</nav>
+</header>
+<div class="titlebar-mobile titlebar text-center">
+<h4>VPN Experteneinstellungen Windows L2TP</h4>
+</div>
+<div class="titlebar">
+<h1>VPN Experteneinstellungen Windows L2TP</h1>
+</div>
+<section id="dynamic-content">
+<div class="container">
+<div class="row m-b-xl">
+<div class="col-md-12">
+<div class="tutorial-steps">
+<script>
+            $(function() {
+                window.setTimeout(
+                    function(){
+                        $("#step-tabs-progress").css("width", "66%");
+                    }, 10
+                );
+            });
+        </script>
+<div class="row">
+<div class="col-sm-12">
+<h3>Schritt 3</h3>
+<div class="progress">
+<div id="step-tabs-progress" class="progress-bar" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+<span class="sr-only">66% Complete</span>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-4">
+<a style="text-decoration: none" href="../../../../tutorial.html">
+<div class="step-tab">
+<i class="fa fa-check-square" aria-hidden="true"></i>
+<span>Wähle ein Betriebssystem</span>
+</div>
+</a>
+</div>
+<div class="col-sm-4">
+<div class="step-tab">
+<i class="fa fa-check-square" aria-hidden="true"></i>
+<span>Installiere SpyOFF</span>
+</div>
+</div>
+<div class="col-sm-4">
+<div class="step-tab active">
+<i class="fa fa-square-o" aria-hidden="true"></i>
+<span>Surfe anonym</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row m-b-xl">
+<div class="accordion-menu-list col-md-4">
+<a class="tutorial-step" id="menu-step-1" href="#step-1">
+<div class="accordion-menu-entry active">
+<span>1. Einstellungen</span>
+</div>
+</a>
+<a class="tutorial-step" id="menu-step-2" href="#step-2">
+<div class="accordion-menu-entry">
+<span>2. Netzwerk- und Freigabecenter</span>
+</div>
+</a>
+<a class="tutorial-step" id="menu-step-3" href="#step-3">
+<div class="accordion-menu-entry">
+<span>3. Verbindung einrichten</span>
+</div>
+</a>
+<a class="tutorial-step" id="menu-step-4" href="#step-4">
+<div class="accordion-menu-entry">
+<span>4. Verbindung herstellen</span>
+</div>
+</a>
+<a class="tutorial-step" id="menu-step-5" href="#step-5">
+<div class="accordion-menu-entry">
+<span>5. VPN verwenden</span>
+</div>
+</a>
+<a class="tutorial-step" id="menu-step-6" href="#step-6">
+<div class="accordion-menu-entry">
+<span>6. Server wählen</span>
+</div>
+</a>
+<a class="tutorial-step" id="menu-step-7" href="#step-7">
+<div class="accordion-menu-entry">
+<span>7. Verbindung auswählen</span>
+</div>
+</a>
+<a class="tutorial-step" id="menu-step-8" href="#step-8">
+<div class="accordion-menu-entry">
+<span>8. Verbindungsaufbau</span>
+</div>
+</a>
+<a class="tutorial-step" id="menu-step-9" href="#step-9">
+<div class="accordion-menu-entry">
+<span>9. Zugangsdaten eingeben</span>
+</div>
+</a>
+<a class="tutorial-step" id="menu-step-10" href="#step-10">
+<div class="accordion-menu-entry">
+<span>Inhaltsbereich</span>
+</div>
+</a>
+</div>
+<div class="col-md-8">
+<section class="accordion-content" id="step-1">
+<span class="accordion-headline">Öffne die Einstellungen</span>
+<div class="tutorial-progress">
+<style>
+        .tutorial-progress .progress {
+            height: 5px;
+        }
+        .tutorial-progress .progress-bar {
+            background-color: #7A7A7A;
+        }
+        .tutorial-progress .progress-bar h1{
+            position:absolute;
+            top:-70px;
+            right:20px;
+            color:#ccc;
+        }
+    </style>
+<div class="row">
+ <div class="col-sm-12">
+<div class="progress">
+<div id="step-tabs-progress" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+<span class="sr-only">0% Complete</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tutorial-john">
+<img class="john-image" src="../../../../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbhF/default/img/john.png" alt="" />
+<div class="john-text">
+<p>Hallo! Ich begleite Dich während der Einrichtung von SpyOFF. Führe bitte Schritt für Schritt jede Anweisung der linken Navigationsleiste durch. Ich möchte Dich außerdem darauf hinweisen, dass sich manuelle Einstellungen unter Mac Os X vor allem an sehr erfahrene Nutzer richten.</p>
+<span><b>John</b> <small>Support-Team, SpyOFF</small></span>
+</div>
+</div> <hr>
+<p class="p-t-b-sm">Klicke auf <b>„Start“</b> und öffne die <b>„Einstellungen“</b>.</p>
+<img class="img-responsive" src="../../../../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbai/default/img/SpyOFF_Experteneinstellungen_Windows_01.png" alt="" />
+<div class="text-center">
+<a class="tutorial-step w-btn bg-blue-2 m-0-auto m-t-lg" href="#step-2">
+<span class="w-btn-label">weiter</span>
+</a>
+</div>
+</section>
+<section class="accordion-content" id="step-2">
+<span class="accordion-headline">Öffne das Netzwerk- und Freigabecenter</span>
+<div class="tutorial-progress">
+<style>
+        .tutorial-progress .progress {
+            height: 5px;
+        }
+        .tutorial-progress .progress-bar {
+            background-color: #7A7A7A;
+        }
+        .tutorial-progress .progress-bar h1{
+            position:absolute;
+            top:-70px;
+            right:20px;
+            color:#ccc;
+        }
+    </style>
+<div class="row">
+<div class="col-sm-12">
+<div class="progress">
+<div id="step-tabs-progress" class="progress-bar" role="progressbar" aria-valuenow="12.5" aria-valuemin="0" aria-valuemax="100" style="width:12.5%">
+<span class="sr-only">12.5% Complete</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class="p-t-b-sm">Fahre dann mit&nbsp;<b>„Netzwerk und Internet“</b>&nbsp;fort und klicke auf <b>„Netzwerk- und Freigabecenter“</b>.</p>
+<img class="img-responsive" src="../../../../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbaW/default/img/SpyOFF_Experteneinstellungen_Windows_02.png" alt="" />
+<div class="text-center">
+<a class="tutorial-step w-btn bg-blue-2 m-0-auto m-t-lg" href="#step-3">
+<span class="w-btn-label">weiter</span>
+</a>
+</div>
+</section>
+<section class="accordion-content" id="step-3">
+<span class="accordion-headline">Richte eine Verbindung ein</span>
+<div class="tutorial-progress">
+<style>
+        .tutorial-progress .progress {
+            height: 5px;
+        }
+        .tutorial-progress .progress-bar {
+            background-color: #7A7A7A;
+        }
+        .tutorial-progress .progress-bar h1{
+            position:absolute;
+            top:-70px;
+            right:20px;
+            color:#ccc;
+        }
+    </style>
+<div class="row">
+<div class="col-sm-12">
+<div class="progress">
+<div id="step-tabs-progress" class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width:25%">
+ <span class="sr-only">25% Complete</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class="p-t-b-sm">Um die VPN Experteneinstellungen einrichten zu können, klicke im Fenster <b>„Netzwerk- und Freigabecenter“</b>&nbsp;auf <b>„Neue Verbindung oder neues Netzwerk einrichten“</b>.</p>
+<img class="img-responsive" src="../../../../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFba1/default/img/SpyOFF_Experteneinstellungen_Windows_03.png" alt="" />
+<div class="text-center">
+<a class="tutorial-step w-btn bg-blue-2 m-0-auto m-t-lg" href="#step-4">
+<span class="w-btn-label">weiter</span>
+</a>
+</div>
+</section>
+<section class="accordion-content" id="step-4">
+<span class="accordion-headline">Stelle eine Verbindung her</span>
+<div class="tutorial-progress">
+<style>
+        .tutorial-progress .progress {
+            height: 5px;
+        }
+        .tutorial-progress .progress-bar {
+            background-color: #7A7A7A;
+        }
+        .tutorial-progress .progress-bar h1{
+            position:absolute;
+            top:-70px;
+            right:20px;
+            color:#ccc;
+        }
+    </style>
+<div class="row">
+<div class="col-sm-12">
+<div class="progress">
+<div id="step-tabs-progress" class="progress-bar" role="progressbar" aria-valuenow="37.5" aria-valuemin="0" aria-valuemax="100" style="width:37.5%">
+<span class="sr-only">37.5% Complete</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class="p-t-b-sm">Wähle im nächsten Schritt die Option <b>„Verbindung mit dem Arbeitsplatz herstellen“</b> und bestätige mit <b>„Weiter“</b>.</p>
+<img class="img-responsive" src="../../../../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbaX/default/img/SpyOFF_Experteneinstellungen_Windows_04.png" alt="" />
+<div class="text-center">
+<a class="tutorial-step w-btn bg-blue-2 m-0-auto m-t-lg" href="#step-5">
+<span class="w-btn-label">weiter</span>
+</a>
+</div>
+</section>
+<section class="accordion-content" id="step-5">
+<span class="accordion-headline">Verwende VPN</span>
+<div class="tutorial-progress">
+<style>
+        .tutorial-progress .progress {
+            height: 5px;
+        }
+        .tutorial-progress .progress-bar {
+            background-color: #7A7A7A;
+        }
+        .tutorial-progress .progress-bar h1{
+            position:absolute;
+            top:-70px;
+            right:20px;
+            color:#ccc;
+        }
+    </style>
+<div class="row">
+<div class="col-sm-12">
+<div class="progress">
+<div id="step-tabs-progress" class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+<span class="sr-only">50% Complete</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class="p-t-b-sm">Im folgenden Fenster wähle die Option <b>„Die Internetverbindung (VPN) verwenden“</b>.</p>
+<img class="img-responsive" src="../../../../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbat/default/img/SpyOFF_Experteneinstellungen_Windows_05.png" alt="" />
+<div class="text-center">
+<a class="tutorial-step w-btn bg-blue-2 m-0-auto m-t-lg" href="#step-6">
+<span class="w-btn-label">weiter</span>
+</a>
+</div>
+</section>
+<section class="accordion-content" id="step-6">
+<span class="accordion-headline">Wähle einen Server</span>
+<div class="tutorial-progress">
+<style>
+        .tutorial-progress .progress {
+            height: 5px;
+        }
+        .tutorial-progress .progress-bar {
+            background-color: #7A7A7A;
+        }
+        .tutorial-progress .progress-bar h1{
+            position:absolute;
+            top:-70px;
+            right:20px;
+            color:#ccc;
+        }
+    </style>
+<div class="row">
+<div class="col-sm-12">
+<div class="progress">
+<div id="step-tabs-progress" class="progress-bar" role="progressbar" aria-valuenow="62.5" aria-valuemin="0" aria-valuemax="100" style="width:62.5%">
+<span class="sr-only">62.5% Complete</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class="p-t-b-sm">Gib nun in das Eingabefeld <b>„Internetadresse“</b> die IP-Adresse des Servers ein. Benenne noch unter <b>„Zielname“</b> die VPN-Verbindung (z.B. <b>„SpyOFF“</b>).</p>
+<p class="p-t-b-sm"><em><strong>Bitte beachten:</strong>&nbsp;Über die Auswahl an Servern kannst Du Dich auf unserer Webseite informieren, indem Du die <a href="../../../../server-list.html">Serverliste</a> aufrufst.</em></p>
+<img class="img-responsive" src="../../../../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbaY/default/img/SpyOFF_Experteneinstellungen_Windows_06.png" alt="" />
+<div class="text-center">
+<a class="tutorial-step w-btn bg-blue-2 m-0-auto m-t-lg" href="#step-7">
+<span class="w-btn-label">weiter</span>
+</a>
+</div>
+</section>
+<section class="accordion-content" id="step-7">
+<span class="accordion-headline">Wähle die bestehende Verbindung</span>
+<div class="tutorial-progress">
+<style>
+        .tutorial-progress .progress {
+            height: 5px;
+        }
+        .tutorial-progress .progress-bar {
+            background-color: #7A7A7A;
+        }
+        .tutorial-progress .progress-bar h1{
+            position:absolute;
+            top:-70px;
+            right:20px;
+            color:#ccc;
+        }
+    </style>
+<div class="row">
+<div class="col-sm-12">
+<div class="progress">
+<div id="step-tabs-progress" class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
+<span class="sr-only">75% Complete</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class="p-t-b-sm">Klicke zunächst auf&nbsp;<b>„Erstellen“</b>.&nbsp;Im Fenster <b>„Netzwerk- und Freigabecenter“</b>&nbsp;ist&nbsp;dann <b>„Neue Verbindung oder neues Netzwerk einrichten“ </b>auszuwählen. Im nächsten Schritt klicke die Option <b>„Verbindung mit dem Arbeitsplatz herstellen“</b>&nbsp;an und bestätige diese mit <b>„Weiter“</b>.&nbsp;Im anschließenden&nbsp;Fenster wähle&nbsp;<b>„Ja, eine bestehende Verbindung auswählen“</b>&nbsp;sowie Deine zuvor eingerichtete VPN-Verbindung aus.</p>
+<img class="img-responsive" src="../../../../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbau/default/img/SpyOFF_Experteneinstellungen_Windows_07.png" alt="" />
+<div class="text-center">
+<a class="tutorial-step w-btn bg-blue-2 m-0-auto m-t-lg" href="#step-8">
+<span class="w-btn-label">weiter</span>
+</a>
+</div>
+</section>
+<section class="accordion-content" id="step-8">
+<span class="accordion-headline">Baue eine Verbindung auf</span>
+<div class="tutorial-progress">
+<style>
+        .tutorial-progress .progress {
+            height: 5px;
+        }
+        .tutorial-progress .progress-bar {
+            background-color: #7A7A7A;
+        }
+        .tutorial-progress .progress-bar h1{
+            position:absolute;
+            top:-70px;
+            right:20px;
+            color:#ccc;
+        }
+    </style>
+<div class="row">
+<div class="col-sm-12">
+<div class="progress">
+<div id="step-tabs-progress" class="progress-bar" role="progressbar" aria-valuenow="87.5" aria-valuemin="0" aria-valuemax="100" style="width:87.5%">
+<span class="sr-only">87.5% Complete</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class="p-t-b-sm">Wähle nun im neuen Bildschirm Deine zuvor eingerichtete VPN-Verbindung aus und klicke auf <b>„Verbinden“</b>.</p>
+<img class="img-responsive" src="../../../../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbay/default/img/SpyOFF_Experteneinstellungen_Windows_OpenVPN_07.png" alt="" />
+<div class="text-center">
+<a class="tutorial-step w-btn bg-blue-2 m-0-auto m-t-lg" href="#step-9">
+<span class="w-btn-label">weiter</span>
+</a>
+</div>
+</section>
+<section class="accordion-content" id="step-9">
+<span class="accordion-headline">Baue eine Verbindung auf</span>
+<div class="tutorial-progress">
+<style>
+        .tutorial-progress .progress {
+            height: 5px;
+        }
+        .tutorial-progress .progress-bar {
+            background-color: #7A7A7A;
+        }
+        .tutorial-progress .progress-bar h1{
+            position:absolute;
+            top:-70px;
+            right:20px;
+            color:#ccc;
+        }
+    </style>
+<div class="row">
+<div class="col-sm-12">
+<div class="progress">
+<div id="step-tabs-progress" class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+<span class="sr-only">100% Complete</span>
+<h1 class="visible-lg">100%</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class="p-t-b-sm">Gib Deine Benutzerdaten, bestehend aus Benutzername und Passwort, ein.</p>
+<p class="p-t-b-sm"><em><strong>Bitte beachten:</strong>&nbsp;Hinter Deinem Benutzernamen muss noch „@spyoff“ angefügt werden (z.B. myusername@spyoff).</em></p>
+<p class="p-t-b-sm"><em>Deine Zugangsdaten hast Du bei Deiner Registrierung angegeben. Den Benutzernamen kannst Du ebenfalls Deiner Willkommensmail entnehmen. Falls Du Deine Passwort vergessen hast, kannst Du hier Deine&nbsp;<a href="https://shop.spyoff.com/my-account/edit-account/">Passwort zurücksetzen</a>.</em></p>
+<p class="p-t-b-sm">Nun kannst Du SpyOFF über die VPN Experteneinstellungen verwenden.</p>
+<p class="p-t-b-sm">Wähle nun im neuen Bildschirm Deine zuvor eingerichtete VPN-Verbindung aus und klicke auf <b>„Verbinden“</b>.</p>
+<img class="img-responsive" src="../../../../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbaZ/default/img/SpyOFF_Experteneinstellungen_Windows_09.png" alt="" />
+</section>
+<section class="accordion-content" id="step-10">
+</section>
+</div>
+</div>
+</div>
+</section>
+<footer>
+<div class="container">
+<div class="row">
+<div class="col-sm-3">
+<h3 class="text-light-grey-2 m-b-lg">Über SpyOFF</h3>
+<ul class="list-unstyled m-b-lg">
+ <li><a class="text-light-grey-2" href="../../../../../index.html#preise">Pakete & Preise</a></li>
+<li><a class="text-light-grey-2" href="../../../../server-location.html">Server-Standorte</a></li>
+<li><a class="text-light-grey-2" href="https://blog.spyoff.com/" target="_blank">Blog</a></li>
+<li><a class="text-light-grey-2" href="../../../../downloads.html">Downloads</a></li>
+<li><a class="text-light-grey-2" href="../../../../faq.html">FAQ</a></li>
+<li><a class="text-light-grey-2" href="../../../../glossary.html">Glossar</a></li>
+<li><a class="text-light-grey-2" href="http://help.spyoff.com/">Kontakt</a></li>
+<li><a class="text-light-grey-2" href="../../../../vpn-router.html">VPN-Router</a></li>
+</ul>
+</div>
+<div class="col-sm-3">
+<h3 class="text-light-grey-2 m-b-lg">Account</h3>
+<ul class="list-unstyled m-b-lg">
+<li><a class="text-light-grey-2" href="https://shop.spyoff.com/de/my-account/">Login</a></li>
+</ul>
+<h3 class="text-light-grey-2 m-b-lg">Sprachen</h3>
+<ul class="list-unstyled m-b-lg">
+<li><a class="text-light-grey-2" href="l2tp.html" target="_blank">DEUTSCH</a></li>
+<li><a class="text-light-grey-2" href="../../../../../en/tutorial/vpn/expert/windows/l2tp.html" target="_blank">ENGLISH</a></li>
+</ul>
+</div>
+<div class="col-sm-3">
+<h3 class="text-light-grey-2 m-b-lg">Unternehmen</h3>
+<ul class="list-unstyled m-b-lg">
+<li><a class="text-light-grey-2" href="../../../../imprint.html">Impressum</a></li>
+<li><a class="text-light-grey-2" href="../../../../data-protection-regulations.html">Datenschutzbestimmungen</a></li>
+<li><a class="text-light-grey-2" href="../../../../terms.html">AGB</a></li>
+<li><a class="text-light-grey-2" href="../../../../affiliate/program.html">Partnerprogramm</a></li>
+<li><a class="text-light-grey-2" href="../../../../affiliate.html">Affiliate-Login</a></li>
+</ul>
+</div>
+<div class="col-sm-3">
+<img src="../../../../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbsy/default/img/bestapp-2016.png" class="img-responsive m-0-auto m-b " style="max-width:160px;" />
+<img src="../../../../../../spyoff.dislo.cloud/r0/root/r/vhost/spyoff.com/rev/MNByVV3Dmow9VaK8KoFbni/default/img/pc-magazine.png" class="img-responsive m-0-auto m-b" style="max-width:160px;" />
+</div>
+</div>
+</div>
+<div style="background:#222222;" class="m-t-lg">
+<div class="container">
+<div class="row">
+<div class="col-xs-12 text-center" style="margin-top: 25px;">
+<p class="text-muted">&copy; 2018 - All rights reserved by Sareta S.r.l. Support: info@spyoff.com</p>
+</div>
+</div>
+</div>
+</div>
+<div id="btn-scrolltop">
+<i class="fa fa-chevron-up"></i>
+</div>
+</footer>
+<div class="modal fade" id="video-modal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+<h4 class="modal-title" id="videoModalLabel">Sicher und anonym surfen per VPN Client von SpyOFF</h4>
+</div>
+<div class="modal-body">
+<div class="embed-responsive embed-responsive-16by9">
+<div id="player"></div>
+</div>
+
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Zurück</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+    var playerModal;
+    
+    $("#video-modal").on("show.bs.modal", function(){
+        if (!playerModal) {
+            playerModal = new YT.Player('player', {
+                videoId: 'Nvglzyf-6iM',
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+            
+        } else {
+            playerModal.playVideo();
+        }
+    }).on("hide.bs.modal", function(){
+        playerModal.stopVideo();
+    });
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    function onPlayerReady(event) {
+        event.target.playVideo();
+    }
+</script>
+<script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','../../../../../../www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-61227988-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+<script>
+            (function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:'5000381'};o.q=w[u],w[u]=new UET(o),w[u].push('pageLoad')},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=='loaded'&&s!=='complete'||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,'script','../../../../../../bat.bing.com/bat.js','uetq');
+        </script>
+<noscript><img src='http://bat.bing.com/action/0?ti=5000381&amp;Ver=2' height='0' width='0' style='display:none; visibility: hidden;' /></noscript>
+<script>
+        window.ntmData=window.ntmData||[];
+        window.ntmData.push({
+        pageType:'homepage'
+        });
+    </script>
+<noscript>
+            <iframe src='http://tm.ad-srv.net/tm/a/container/noscript/b89e1f4397.html' height='0' width='0' style='display:none;visibility:hidden'></iframe>
+        </noscript>
+<script>
+            (function(n,e,o,r,y){n[r]=n[r]||[];n[r].push({'event':'ntmInit','t':new Date().getTime()});var f=e.getElementsByTagName(o)[0],s=e.createElement(o),d=r!='ntmData'?'&ntmData='+r:'';s.async=true;s.src='http'+(document.location.protocol=='https:'?'s':'')+'://tm.ad-srv.net/tm/a/container/init/'+y+'.js?'+d+'&rnd='+Math.floor(Math.random()*100000000);f.parentNode.insertBefore(s,f);})(window,document,'script','ntmData','b89e1f4397');
+        </script>
+<script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+    </script>
+<script type="text/javascript">
+    document.write(decodeURI("%3Cscript id='pap_x2s6df8d' src='" + (("https:" == document.location.protocol) ? "https://" : "http://") + "www.friendlyduck.com/pan/scripts/trackjs.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+    PostAffTracker.setAccountId('a5eca9db');
+    PostAffTracker.setCookieDomain('spyoff.com');
+    try {
+        PostAffTracker.track();
+    } catch (err) { }
+</script>
+<script type="text/javascript">
+    var pan_queryString = window.location.href;
+
+    if (pan_queryString.indexOf('?') != -1 && pan_queryString.indexOf('a_aid') != -1 && pan_queryString.indexOf('a_bid') != -1) {
+        pan_queryString = pan_queryString.split('?')[1];
+
+        var pan_paramPairs = pan_queryString.split('&');
+        var pan_params = {};
+        var pan_setCookie = false;
+        for (var i = 0; i < pan_paramPairs.length; i++) {
+            var pan_param = pan_paramPairs[i].split('=');
+            var pan_paramName = pan_param[0];
+            if (pan_paramName == 'a_aid' || pan_paramName == 'a_bid' || pan_paramName == 'chan' || pan_paramName == 'data1' || pan_paramName == 'data2') {
+                pan_params[pan_paramName] = decodeURIComponent(pan_param[1] || '');
+                pan_setCookie = true;
+            }
+        }
+        if (pan_setCookie == true) {
+            if(document.referrer.length > 0) {
+                pan_params['ref'] = document.referrer;
+            }
+            var pan_json = JSON.stringify(pan_params);
+            var pan_cookieValue = btoa(pan_json);
+            var pan_expiry = new Date();
+            pan_expiry.setMonth(pan_expiry.getMonth() + 1);
+            document.cookie = "pan=" + pan_cookieValue + ";expires=" + pan_expiry + ";domain=.spyoff.com;path=/";
+        }
+    }
+</script></body>
+
+<!-- Mirrored from www.spyoff.com/de/tutorial/vpn/expert/windows/l2tp by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 09 Feb 2018 09:38:38 GMT -->
+</html>
